@@ -1,5 +1,6 @@
 import numpy as np
 import datetime
+from datetime import date
 
 class Category:
     def __init__(self, name, color):
@@ -13,18 +14,31 @@ class Event:
 
 
 class Task:
-    def __init__(self, start_date, time_duration, percent, Category):
+    def __init__(self, time_duration, percent, Category):
         self.time_duration = time_duration
+        self.start_date = date.today()
+        print(self.start_date)
 
-def break_up_tasks(Task):
-    """
-    Break up a task into somewhat equal chunks over a few days.
+    def break_up_task(self):
+        """
+        Break up a task into somewhat equal chunks over a few days.
 
-    Arguments:
-        Task : class object
-    """
-    
+        Arguments:
+            Task : class object
+        """
+        pass
 
+class Block:
+    def __init__(self):
+        # this will take in either a task or an event and create a "block" with dimensions so that we can draw it later
+        pass
+
+    def determine_size(self):
+        pass
+
+
+category = Category("something", "blue")
+get_shit_done = Task(60, 75, category)
 # smallest worktime is 30 minutes
 # break between worktimes is 5 minutes
 # longest worktime is 3 hours
