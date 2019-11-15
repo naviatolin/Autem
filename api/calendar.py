@@ -90,8 +90,9 @@ class Day:
         
     def update_day_tasks(self, Task):
         pass
-    
-category = Category("something", "blue")
+
+  
+soft_des = Category("something", "blue")
 get_shit_done = Task(60, 75, category)
 # smallest worktime is 30 minutes
 # break between worktimes is 5 minutes

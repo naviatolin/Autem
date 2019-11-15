@@ -1,10 +1,7 @@
-from flask import Flask
-from flask_pymongo import PyMongo
-from flask import request
+from app import app
+from app.database import User
 
-app = Flask(__name__)
-app.config("MONGO_URI") = "mongodb://localhost:27017/myDatabase"
-mongo = PyMongo(app)
 
-@app.route("/")
-def home_page():
+@app.shell_context_processor
+def make_shell_context():
+    return {'db': db, 'User': User}   
