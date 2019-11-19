@@ -22,12 +22,19 @@ div.fixed1 {
   position: fixed;
   top: 239px;
   left: 300px;
+  transition: .5s ease;
 }
 
 div.fixed2{
   position: fixed;
   top: 239px;
   right: 300px;
+}
+
+.overlay {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 </style>
@@ -38,13 +45,16 @@ div.fixed2{
 </div>
 
 <div class="fixed1">
-  <a href="http://info.olin.build/">
+  <a href="{{ url_for('create_account') }}">
     <img src="static\ca.svg" alt="Create Account">
+    <div class="overlay">
+      <img src="static\ca - hover.svg">
+    </div>
   </a>
 </div>
 
 <div class="fixed2">
-  <a href="https://drive.google.com/drive/my-drive">
+  <a href="{{ url_for('login') }}">
     <img src="static\si.svg" alt="Sign In">
   </a>
 </div>
