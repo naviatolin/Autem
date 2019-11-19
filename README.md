@@ -7,7 +7,11 @@ This application is essentially a personalized planner. You input your regular e
 Maya Al-Ahmad and Navi Boyalakuntla
 
 ## Getting Started ##
+Install all of the requirements using the following command.
+
 ```sudo pip install -r requirements.txt```
+
+In addition to running this, install MongoDB using the instructions detailed at https://docs.mongodb.com/manual/installation/#mongodb-community-edition-installation-tutorials.
 
 ## Usage ## 
 In order to view the webapp:

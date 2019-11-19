@@ -22,7 +22,7 @@ div.fixed1 {
   position: fixed;
   top: 239px;
   left: 300px;
-  transition: .5s ease;
+  display:block;
 }
 
 div.fixed2{
@@ -31,10 +31,8 @@ div.fixed2{
   right: 300px;
 }
 
-.overlay {
-  display: block;
-  width: 100%;
-  height: auto;
+a:hover {
+  background: url("static/ca hover.svg") no-repeat;
 }
 
 </style>
@@ -47,9 +45,6 @@ div.fixed2{
 <div class="fixed1">
   <a href="{{ url_for('create_account') }}">
     <img src="static\ca.svg" alt="Create Account">
-    <div class="overlay">
-      <img src="static\ca - hover.svg">
-    </div>
   </a>
 </div>
 
