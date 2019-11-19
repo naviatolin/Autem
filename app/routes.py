@@ -1,3 +1,5 @@
+""" Creates routes """
+
 from flask import render_template, flash, redirect, url_for
 from app import app
 from app.forms import LoginForm
@@ -9,6 +11,7 @@ def index():
 
 @app.route('/create_account', methods=['GET', 'POST'])
 def create_account():
+    """ Using LoginForm class, implements the structure of a create account page"""
     form = LoginForm()
     if form.validate_on_submit():
         flash('Login requested for user {}, remember_me={}'.format(
@@ -18,6 +21,7 @@ def create_account():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
+    """ Using LoginForm class, implements the structure of a log in page """
     form = LoginForm()
     if form.validate_on_submit():
         flash('Login requested for user {}, remember_me={}'.format(
