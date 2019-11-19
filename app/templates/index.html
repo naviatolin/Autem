@@ -7,23 +7,47 @@
 <link href="https://fonts.googleapis.com/css?family=Sanchez&display=swap" rel="stylesheet">
 
 <style>
-div.absolute {
-  position: absolute;
+h1 {
+  margin-top:112px;
+  margin-left:auto;
+  margin-right:auto;
+  text-align: center;
   width: 623px;
   height: 70px;
-  text-align: center;
-  top: 300px;
   font-family: 'Sanchez', serif;
+  color:#425563;
+}
+
+div.fixed1 {
+  position: fixed;
+  top: 239px;
+  left: 300px;
+}
+
+div.fixed2{
+  position: fixed;
+  top: 239px;
+  right: 300px;
 }
 
 </style>
 </head>
 <body>
-
-<div class="absolute">
-<h3 style="color:#425563;">Hello World</h3>
+<div>
+  <h1>Welcome to Autem!</h1>
 </div>
-<img src="\static\ca.svg" alt="Create Account">
+
+<div class="fixed1">
+  <a href="http://info.olin.build/">
+    <img src="static\ca.svg" alt="Create Account">
+  </a>
+</div>
+
+<div class="fixed2">
+  <a href="https://drive.google.com/drive/my-drive">
+    <img src="static\si.svg" alt="Sign In">
+  </a>
+</div>
 
 </body>
 </html>
