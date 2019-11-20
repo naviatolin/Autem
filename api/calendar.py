@@ -91,13 +91,13 @@ class Day:
         Assign a date object to this day class. Create an array that has one entry for every minute in the day.
         """
         self.date = date
-        self.things = []
+        self.things = [] # list of all of the tasks a user has in one day
 
-        self.array = []
+        self.array = [] #each minute has an entry, boolean for each 
         minutes = []
         for hour in range(0,24):
             for minute in range(0,60):
-                minutes.append(0)
+                minutes.append(False)
             self.array.append(minutes)
         
     def update_day_events(self, Event):
@@ -112,7 +112,7 @@ class Day:
         inside_duration = True
 
         while inside_duration:
-            self.array[hour][minute] = 1
+            self.array[hour][minute] = True
 
             minute = minute + 1
 
@@ -130,7 +130,7 @@ class Day:
         """
         Update the list of tasks that the day has to complete
         """
-        pass
+        
 
   
 soft_des = Category("something", "blue")

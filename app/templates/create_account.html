@@ -1,7 +1,31 @@
 {% extends "base.html" %}
-
 {% block content %}
-    <h1>Create an account:</h1>
+<!DOCTYPE html>
+<html>
+<head>
+
+<link href="https://fonts.googleapis.com/css?family=Sanchez&display=swap" rel="stylesheet">
+
+<style>
+
+h3 {
+  margin-top:108px;
+  margin-left:108px;
+  width: 572px;
+  height: 82px;
+  font-family: 'Sanchez', serif;
+  color:#425563;
+}
+
+div.fixed2{
+  position: fixed;
+  top: 239px;
+  right: 300px;
+}
+
+</style>
+</head>
+    <h3>Create an account:</h3>
     <form action="" method="post" novalidate>
         {{ form.hidden_tag() }}
         <p>
@@ -15,4 +39,5 @@
         <p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
         <p>{{ form.submit() }}</p>
     </form>
+</html>
 {% endblock %}
