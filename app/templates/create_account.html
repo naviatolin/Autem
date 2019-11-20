@@ -7,6 +7,7 @@
 <link href="https://fonts.googleapis.com/css?family=Sanchez&display=swap" rel="stylesheet">
 
 <style>
+<<<<<<< HEAD
 
 h3 {
   margin-top:108px;
@@ -21,21 +22,52 @@ div.fixed2{
   position: fixed;
   top: 239px;
   right: 300px;
+=======
+h1{
+  margin-top:108px;
+  margin-left: 108px;
+  font-size: 35px;
+  font-family: 'Sanchez', serif;
+  color:#425563;
+}
+div.fixed1 {
+  position: fixed;
+  top: 172px;
+  left: 490px;
+}
+
+div.fixed2 {
+    position: fixed;
+    top: 364px;
+    left: 490px;
+}
+p {
+    font-size: 20px;
+    font-family: : 'Sanchez', serif;
+    color: #425563; 
+>>>>>>> 8edfaecc0480403d84ceb78d6d7bd3e8c2c3b3e9
 }
 
 </style>
 </head>
+<<<<<<< HEAD
     <h3>Create an account:</h3>
+=======
+
+    <h1>Create an account:</h1>
+>>>>>>> 8edfaecc0480403d84ceb78d6d7bd3e8c2c3b3e9
     <form action="" method="post" novalidate>
         {{ form.hidden_tag() }}
-        <p>
-            {{ form.username.label }}<br>
-            {{ form.username(size=32) }}
-        </p>
-        <p>
-            {{ form.password.label }}<br>
-            {{ form.password(size=32) }}
-        </p>
+
+            <p>
+                {{ form.username.label }}<br>
+                {{ form.username(size=32) }}
+            </p>
+
+            <p>
+                {{ form.password.label }}<br>
+                {{ form.password(size=32) }}
+            </p>
         <p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
         <p>{{ form.submit() }}</p>
     </form>

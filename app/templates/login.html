@@ -1,7 +1,28 @@
 {% extends "base.html" %}
-
 {% block content %}
-    <h1>Sign In</h1>
+<!DOCTYPE html>
+<html>
+<head>
+
+<link href="https://fonts.googleapis.com/css?family=Sanchez&display=swap" rel="stylesheet">
+
+<style>
+h1{
+  margin-top:108px;
+  margin-left: 334px;
+  font-size: 35px;
+  font-family: 'Sanchez', serif;
+  color:#425563;
+}
+p {
+    font-size: 20px;
+    font-family: : 'Sanchez', serif;
+    color: #425563; 
+}
+</style>
+</head>
+
+    <h1>Sign in:</h1>
     <form action="" method="post" novalidate>
         {{ form.hidden_tag() }}
         <p>
