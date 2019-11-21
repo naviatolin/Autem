@@ -29,3 +29,10 @@ def login():
         return redirect(url_for('index'))
     return render_template('login.html',  title='Sign In', form=form)
     
+@app.route('/calendar')
+def calendar():
+    return render_template('calendar.html', title='Calendar')
+
+@app.route('/event')
+def event():
+    return render_template('event.html', title= 'Events')
