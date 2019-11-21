@@ -36,3 +36,11 @@ def calendar():
 @app.route('/event')
 def event():
     return render_template('event.html', title= 'Events')
+
+@app.route('/task')
+def task():
+    return render_template('task.html', title= 'Tasks')
+
+@app.route('/survey')
+def survey():
+    return render_template('survey.html', title='Survey')
