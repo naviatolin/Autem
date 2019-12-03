@@ -3,14 +3,9 @@ from google_auth_oauthlib.flow import InstalledAppFlow
 import pickle 
 from datetime import datetime, timedelta
 import datefinder
-scopes = ['https://www.googleapis.com/auth/calendar']
+import requests
+#scopes = ['https://www.googleapis.com/auth/calendar']
 
-flow = InstalledAppFlow.from_client_secrets_file("client_secret.json", scopes=scopes)
-credentials = flow.run_console() # need to make a seperate file that does the credentials, so that this doesn't terminate everything that comes after it
-
-
-""" Authorization """
-pickle.dump(credentials, open("token.pkl", "wb"))
 credentials = pickle.load(open("token.pkl", "rb"))
 service = build("calendar", "v3", credentials=credentials)
 
@@ -46,3 +41,5 @@ def create_event(start_time_str, summary, duration=1, description=None, location
         },
     }
     return service.events().insert(calendarId='primary', body=event).execute()
+
+create_event("3 december 1 am", "sleeping", 3, "this is the time where I sleep", "BOSTON")
