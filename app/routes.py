@@ -3,6 +3,7 @@
 from flask import render_template, flash, redirect, url_for
 from app import app
 from app.forms import LoginForm
+import os
 
 @app.route('/')
 @app.route('/index')
@@ -44,3 +45,11 @@ def task():
 @app.route('/survey')
 def survey():
     return render_template('survey.html', title='Survey')
+
+@app.route('/newevent', methods=['POST'])
+def handle_data():
+    projectpath = request.form['C:\Users\mahmad1\Desktop\softdes\FairyGodmothers\FairyGodmothers\app\templates\event.html']
+    summary = request.form['name']
+    start_hour = request.form['shour']
+    start_min = request.form['smin']
+    am = request.form['day']
