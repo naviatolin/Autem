@@ -39,7 +39,10 @@ def create_event(start_time_str, summary, duration=1, description=None, location
                 {'method': 'popup', 'minutes': 10},
             ],
         },
+        'recurrence': [
+            'RRULE:FREQ=WEEKLY',
+        ],
     }
     return service.events().insert(calendarId='primary', body=event).execute()
 
-create_event("3 december 1 am", "sleeping", 3, "this is the time where I sleep", "BOSTON")
+#create_event("3 december 1 am", "sleeping", 3, "this is the time where I sleep", "BOSTON")

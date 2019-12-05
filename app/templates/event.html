@@ -13,6 +13,9 @@ body {
   color:#425563;
   font-size: 25px;
 }
+p {
+  font-size: 15px;
+}
 form {
   display: inline block;
 }
@@ -26,8 +29,8 @@ h1 {
   color:#425563;
 }
 input[type=text] {
-  width:100%
-  height: 50px;
+  width:50%;
+  height: 30px;
   padding: 12px 20px;
   margin: 8px 0;
   box-sizing: border-box;
@@ -37,8 +40,8 @@ input[type=text] {
   font-family: 'Sanchez', serif;
 }
 select {
-  width: 75%;
-  height: 50px;
+  width: 50%;
+  height: 30px;
   border: 3px solid #425563;
   border-radius: 5px;
   background-color: #ffffff;
@@ -60,9 +63,20 @@ input[type=button], input[type=submit], input[type=reset] {
 
 <body>
 <h1>Events:</h1>
-<form action="/action_page.php">
+<p> This is where you input your recurring weekly events! </p>
+<form action="newevent" method="post">
 <label for="name">Title</label><br>
 <input type="text" id="name" name="eventname" placeholder="Add title"><br>
+<label for="dayofweek">Day of the Week</label><br>
+<select id="dayofweek" name="dayofweek">
+  <option value="sun">Sunday</option>
+  <option value="mon">Monday</option>
+  <option value="tue">Tuesday</option>
+  <option value="wed">Wednesday</option>
+  <option value="thu">Thursday</option>
+  <option value="fri">Friday</option>
+  <option value="sat">Saturday</option>
+</select><br>
 <label for="shour">Start Hour</label><br>
 <select id="shour" name="shour">
   <option value="hour1">1</option>
@@ -93,8 +107,43 @@ input[type=button], input[type=submit], input[type=reset] {
   <option value="min50">:50</option>
   <option value="min55">:55</option>
 </select><br>
-<label for="day">AM/PM</label><br>
-<select id="day" name="day">
+<label for="day1">AM/PM</label><br>
+<select id="day1" name="day1">
+  <option value="am">am</option>
+  <option value="pm">pm</option>
+</select><br>
+<label for="ehour">End Hour</label><br>
+<select id="ehour" name="ehour">
+  <option value="hour1">1</option>
+  <option value="hour2">2</option>
+  <option value="hour3">3</option>
+  <option value="hour4">4</option>
+  <option value="hour5">5</option>
+  <option value="hour6">6</option>
+  <option value="hour7">7</option>
+  <option value="hour8">8</option>
+  <option value="hour9">9</option>
+  <option value="hour10">10</option>
+  <option value="hour11">11</option>
+  <option value="midnight">12</option>
+</select><br>
+<label for="emin">End Minute</label><br>
+<select id="emin" name="emin">
+  <option value="min0">:00</option>
+  <option value="min5">:05</option>
+  <option value="min10">:10</option>
+  <option value="min15">:15</option>
+  <option value="min20">:20</option>
+  <option value="min25">:25</option>
+  <option value="min30">:30</option>
+  <option value="min35">:35</option>
+  <option value="min40">:40</option>
+  <option value="min45">:45</option>
+  <option value="min50">:50</option>
+  <option value="min55">:55</option>
+</select><br>
+<label for="day2">AM/PM</label><br>
+<select id="day2" name="day2">
   <option value="am">am</option>
   <option value="pm">pm</option>
 </select><br>

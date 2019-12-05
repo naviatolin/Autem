@@ -1,9 +1,54 @@
 """ Creates routes """
 
-from flask import render_template, flash, redirect, url_for
+from flask import render_template, flash, redirect, url_for, request
 from app import app
 from app.forms import LoginForm
 import os
+from apiclient.discovery import build
+from google_auth_oauthlib.flow import InstalledAppFlow
+import pickle 
+from datetime import datetime, timedelta
+import datefinder
+import requests
+
+credentials = pickle.load(open("token.pkl", "rb"))
+service = build("calendar", "v3", credentials=credentials)
+
+""" Connecting to my calendar """ 
+result = service.calendarList().list().execute()
+calendar_id = result['items'][0]['id']
+
+""" Making New Event! """
+
+def create_event(start_time_str, summary, duration=1, description=None, location=None):
+    matches=list(datefinder.find_dates(start_time_str))
+    if len(matches):
+        start_time = matches[0]
+        end_time = start_time + timedelta(hours=duration)
+        
+    event = {
+        'summary': summary,
+        'location': location,
+        'description': description,
+        'start':{
+            'dateTime': start_time.strftime("%Y-%m-%dT%H:%M:%S"),
+            'timeZone': 'America/Chicago'
+        },
+        'end': {
+            'dateTime': end_time.strftime("%Y-%m-%dT%H:%M:%S"),
+            'timeZone': 'America/Chicago'
+        },
+        'reminders': {
+            'useDefault': False,
+            'overrides': [
+                {'method': 'popup', 'minutes': 10},
+            ],
+        },
+        'recurrence': [
+            'RRULE:FREQ=WEEKLY',
+        ],
+    }
+    return service.events().insert(calendarId='primary', body=event).execute()
 
 @app.route('/')
 @app.route('/index')
@@ -47,9 +92,16 @@ def survey():
     return render_template('survey.html', title='Survey')
 
 @app.route('/newevent', methods=['POST'])
-def handle_data():
-    projectpath = request.form['C:\Users\mahmad1\Desktop\softdes\FairyGodmothers\FairyGodmothers\app\templates\event.html']
-    summary = request.form['name']
+def newevent():
+    #projectpath = request.form['C:\Users\mahmad1\Desktop\softdes\FairyGodmothers\FairyGodmothers\app\templates\event.html']
+    summary = request.form['eventname']
+    day_of_week = request.form['dayofweek']
     start_hour = request.form['shour']
     start_min = request.form['smin']
-    am = request.form['day']
+    am1 = request.form['day1']
+    end_hour = request.form['ehour']
+    end_min = request.form['emin']
+    am2 = request.form['day2']   
+    #print("The event name is '" + summary + "'")
+    create_event()
+    return redirect('/calendar')
