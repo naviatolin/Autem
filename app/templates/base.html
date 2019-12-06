@@ -9,6 +9,9 @@
     <body>
         <div>
             <a href="{{ url_for('index') }}">Home</a>
+            <a href="{{ url_for('event') }}">Events</a>
+            <a href="{{ url_for('task') }}">Tasks</a>
+            <a href="{{ url_for('survey') }}">Survey</a>
         </div>
         <hr>
         {% with messages = get_flashed_messages() %}

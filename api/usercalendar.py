@@ -142,8 +142,9 @@ class Day:
                 if self.array[hour][minute] is False
 
   
-soft_des = Category("something", "blue")
-get_stuff_done = Task(60, 75, category)
+#soft_des = Category("something", "blue")
+#get_stuff_done = Task(60, 75, category)
+
 # smallest worktime is 30 minutes
 # break between worktimes is 5 minutes
 # longest worktime is 3 hours
