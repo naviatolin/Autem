@@ -51,7 +51,7 @@ class Task:
 
         self.broken = []
         for x in range(0,day_difference):
-            self.broken.append(Block(time_per_day))
+            self.broken.append(Block(time_per_day, x + self.start_date))
 
         return self.broken
 
@@ -59,7 +59,7 @@ class Block:
     """
     A chunk of time allocated in the user's timeline.
     """
-    def __init__(self, time):
+    def __init__(self, time, day):
         """
         Initialize a block with the number of minutes per day that the opject takes up.
         """
@@ -75,12 +75,15 @@ class Block:
         size = conv/hour 
         pass
 
-    def schedule_it(self):
+    def schedule_it(self, start_time, end_time):
         """
         TO DO: Schedule the block in the user's day.
         """
         self.start_time = start_time
         self.end_time = end_time
+
+
+
 
 class Day:
     """
@@ -96,6 +99,7 @@ class Day:
         self.array = [] #each minute has an entry, boolean for each 
         minutes = []
         for hour in range(0,24):
+            minutes = []
             for minute in range(0,60):
                 minutes.append(False)
             self.array.append(minutes)
@@ -130,7 +134,12 @@ class Day:
         """
         Update the list of tasks that the day has to complete
         """
-        
+        for hour in range(9, 23):
+            for minute in range(0, 59):
+                if minute < 9:
+                    10_ago_hour = hour - 1
+                    10_ago_minute = 59 - 
+                if self.array[hour][minute] is False
 
   
 #soft_des = Category("something", "blue")
