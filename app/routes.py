@@ -32,7 +32,7 @@ def create_event(start_time_str, summary, duration=1, description=None, location
         'description': description,
         'start':{
             'dateTime': start_time.strftime("%Y-%m-%dT%H:%M:%S"),
-            'timeZone': 'America/Chicago'
+            'timeZone': 'America/New_York'
         },
         'end': {
             'dateTime': end_time.strftime("%Y-%m-%dT%H:%M:%S"),
@@ -60,9 +60,9 @@ def create_account():
     """ Using LoginForm class, implements the structure of a create account page"""
     form = LoginForm()
     if form.validate_on_submit():
-        flash('Login requested for user {}, remember_me={}'.format(
-            form.username.data, form.remember_me.data))
-        return redirect(url_for('index'))
+        #flash('Login requested for user {}, remember_me={}'.format(
+            #form.username.data, form.remember_me.data))
+        return redirect(url_for('survey'))
     return render_template('create_account.html',  title='Create Account', form=form)
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -70,9 +70,9 @@ def login():
     """ Using LoginForm class, implements the structure of a log in page """
     form = LoginForm()
     if form.validate_on_submit():
-        flash('Login requested for user {}, remember_me={}'.format(
-            form.username.data, form.remember_me.data))
-        return redirect(url_for('index'))
+        #flash('Login requested for user {}, remember_me={}'.format(
+            #form.username.data, form.remember_me.data))
+        return redirect(url_for('calendar'))
     return render_template('login.html',  title='Sign In', form=form)
     
 @app.route('/calendar')
