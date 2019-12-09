@@ -12,3 +12,12 @@ class LoginForm(FlaskForm):
     password = PasswordField('Password', validators=[DataRequired()]) #This is the form for passwords
     remember_me = BooleanField('Remember Me') #This is the box for "Remember Me" option
     submit = SubmitField('Sign In') 
+
+# class eventform(FlaskForm):
+#     """ 
+#     A form for users to fill out in order to Log in 
+#     """
+#     event_name= StringField('Event Name', validators=[DataRequired()]) #This is the form for username
+#     password = PasswordField('Password', validators=[DataRequired()]) #This is the form for passwords
+#     remember_me = BooleanField('Remember Me') #This is the box for "Remember Me" option
+#     submit = SubmitField('Submit') 
