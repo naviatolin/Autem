@@ -93,7 +93,6 @@ def survey():
 
 @app.route('/newevent', methods=['GET','POST'])
 def newevent():
-    form = event_form()
     summary = request.form['eventname']
     day_of_week = request.form['dayofweek']
     start_hour = request.form['shour']
@@ -142,7 +141,6 @@ def newevent():
 
 @app.route('/newtask', methods=['GET','POST'])
 def newtask():
-    form = task_form()
     title = request.form['taskname']
     due_date= request.form['duedate']
     time_estimate = request.form['timeestimate']
