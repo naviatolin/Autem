@@ -1,0 +1,21 @@
+enable : true
+heading : Our
+headingSpan : Team
+teamMember :
+  - image : images/team/LINKEDIN_PROFILE.png
+    name : Pranavi Boyalakuntla
+    description : Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur necessitatibus ullam, culpa odio.
+    socialIcon :
+      - icon : tf-ion-social-linkedin
+        url : "#"
+      - icon : tf-ion-social-github
+        url : "#"
+      
+  - image : images/team/maya.jpg
+    name : Maya Al-Ahmad
+    description : Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur necessitatibus ullam, culpa odio.
+    socialIcon :
+      - icon : tf-ion-social-linkedin
+        url : "#"
+      - icon : tf-ion-social-github
+        url : "#"

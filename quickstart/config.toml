@@ -1,0 +1,119 @@
+baseURL = "http://example.org/"
+languageCode = "en-us"
+DefaultContentLanguage = "en"
+title = "Autem"
+theme = "meghna-hugo"
+summaryLength = 10
+
+[taxonomies]
+  author = "author"
+  category = "categories"
+  tag = "tags"
+
+# Menu
+[menu]
+    [[menu.nav]]
+    name = "About Us"
+    URL = "about"
+    weight = 2
+
+    [[menu.nav]]
+    name = "Functionality"
+    URL = "functionality"
+    weight = 3
+
+
+    [[menu.nav]]
+    name = "Team"
+    URL = "our-team"
+    weight = 4
+
+    [[menu.nav]]
+    name = "Blog"
+    URL = "blog"
+    weight = 5
+
+# Site params
+[params]
+home= "Home"
+logo = "images/rsz_2logo4.png"
+gmapAPI = "https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU&libraries=places"
+# Meta data
+description = "Boost Productivity and Mental Health"
+author = "Themefisher"
+
+    # Banner Section
+    [params.banner]
+    enable = true
+    bgImage = "images/slider/happy.jpg"
+    icon = "tf-ion-play"
+    heading = "Work Happy"
+    content= "Mental health and productivity are not mutually exclusive. In fact, they are more related than you would believe."
+    btn = true
+    btnText="Find out more"
+    btnURL="#about"
+
+    # call to action
+    [params.cta]
+    enable = true
+    title = "So what does Autem actually do?"
+    btnURL = "#functionality"
+    btnText = "Let's take a look"
+
+    # counter
+    [params.counter]
+    enable = true
+    bgImage = "images/backgrounds/bg-1.jpg"
+        [[params.counter.counterItem]]
+        title = "Happy Clients"
+        icon = "tf-ion-android-happy"
+        count = "320"
+
+        [[params.counter.counterItem]]
+        title = "Projects completed"
+        icon = "tf-ion-archive"
+        count = "565"
+
+        [[params.counter.counterItem]]
+        title = "Positive feedback"
+        icon = "tf-ion-thumbsup"
+        count = "95"
+
+        [[params.counter.counterItem]]
+        title = "Cups of Coffee"
+        icon = "tf-ion-coffee"
+        count = "2500"
+
+    # footer
+    [params.footer]
+        copyright = "Themefisher"
+        copyrightURL = "http://www.themefisher.com"
+
+        # social Icons
+        [[params.footer.socialIcon]]
+        icon = "tf-ion-social-facebook"
+        url = "#"
+
+        [[params.footer.socialIcon]]
+        icon = "tf-ion-social-twitter"
+        url = "#"
+
+        [[params.footer.socialIcon]]
+        icon = "tf-ion-social-google-outline"
+        url = "#"
+
+        [[params.footer.socialIcon]]
+        icon = "tf-ion-social-youtube"
+        url = "#"
+
+        [[params.footer.socialIcon]]
+        icon = "tf-ion-social-linkedin"
+        url = "#"
+
+        [[params.footer.socialIcon]]
+        icon = "tf-ion-social-dribbble-outline"
+        url = "#"
+
+        [[params.footer.socialIcon]]
+        icon = "tf-ion-social-pinterest-outline"
+        url = "#"

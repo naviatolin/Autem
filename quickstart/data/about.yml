@@ -1,0 +1,16 @@
+enable : true
+heading : About
+headingSpan : Autem
+aboutItem : 
+
+- icon : tf-profile-female
+  title : Made For You
+  content : You work best when you are happy. Autem takes your preferences into consideration to plan out the best work schedules for you.
+
+- icon : tf-calendar2
+  title : Automatic Scheduling
+  content : Tell us what you have going on and Autem will tell you the best way to reach your goals. You won't miss a thing using Google Calendar integration.
+
+- icon : tf-alarmclock
+  title : Optimal Work Time
+  content : Different people have different work styles. We will optimize your everyday so you can be the happiest, most productive version of yourself.

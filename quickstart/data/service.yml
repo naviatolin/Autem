@@ -1,0 +1,27 @@
+enable : true
+heading : Our
+headingSpan : Functionality
+serviceItem :
+  - icon : tf-globe
+    title : Events and Task Handling
+    content : Autem looks at your tasks and the amount of time you estimate them to take and breaks them up into reasonable chunks and schedules them into your free time. If you don't have any remaining time in the day, Autem will remind you to scale back if possible. Say you are unable to scale back in the current moment. Autem will either schedule the task earlier in the morning or later in the night than usual.
+    
+  - icon : tf-ion-laptop
+    title : Scheduling With Mental Health In Mind
+    content : Autem will try to optimize the 
+    
+  - icon : tf-genius
+    title : Media &amp; Advertisement
+    content : Lorem ipsum dolor sit amet, consectetur.. Sed id lorem eget orci dictum facilisis vel id tellus.Nullam iaculis arcu at mauris dapibus consectetur.
+    
+  - icon : tf-dial
+    title : Graphic Design
+    content : Lorem ipsum dolor sit amet, consectetur.. Sed id lorem eget orci dictum facilisis vel id tellus.Nullam iaculis arcu at mauris dapibus consectetur.
+    
+  - icon : tf-target3
+    title : Apps Development
+    content : Lorem ipsum dolor sit amet, consectetur.. Sed id lorem eget orci dictum facilisis vel id tellus.Nullam iaculis arcu at mauris dapibus consectetur.
+    
+  - icon : tf-lifesaver
+    title : Networking
+    content : Lorem ipsum dolor sit amet, consectetur.. Sed id lorem eget orci dictum facilisis vel id tellus.Nullam iaculis arcu at mauris dapibus consectetur.

@@ -7,33 +7,109 @@
 <link href="https://fonts.googleapis.com/css?family=Sanchez&display=swap" rel="stylesheet">
 
 <style>
+body {
+  font-family: 'Sanchez', serif;
+  text-align: center;
+  color:#425563;
+  font-size: 25px;
+  background-color: #F6E4D9;
+}
+p {
+  font-size: 15px;
+}
+form {
+  display: inline block;
+}
 h1 {
-  margin-top:112px;
+  margin-top:45px;
   margin-left:auto;
   margin-right:auto;
   text-align: center;
   font-size: 40px;
-  font-family: 'Sanchez', serif;
+ 
   color:#425563;
 }
-
-p {
-    margin-top: 170px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-    font-size: 25px;
-    font-family: 'Sanchez', serif;
-    color:#425563
+input[type=text] {
+  width:50%;
+  height: 30px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 3px solid #425563;
+  border-radius: 5px;
+  background-color: #ffffff;
+  font-family: 'Sanchez', serif;
 }
-
+input[type=number] {
+  width:10%;
+  height: 30px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 3px solid #425563;
+  border-radius: 5px;
+  background-color: #ffffff;
+  font-family: 'Sanchez', serif;
+}
+input[type=date] {
+  width:10%;
+  height: 30px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 3px solid #425563;
+  border-radius: 5px;
+  background-color: #ffffff;
+  font-family: 'Sanchez', serif;
+}
+select {
+  width: 50%;
+  height: 30px;
+  border: 3px solid #425563;
+  border-radius: 5px;
+  background-color: #ffffff;
+  font-family: 'Sanchez', serif;
+}
+input[type=button], input[type=submit], input[type=reset] {
+  background-color:#F3AE9E;
+  border: 3px solid #EA7C68;
+  border-radius: 5px;
+  color: #425563;
+  padding: 15px 40px;
+  font-family: 'Sanchez', serif;
+  margin: 4px 2px;
+  cursor: pointer;
+  font-size: 30px;
+}
 </style>
 </head>
+
 <body>
+<h1>Task:</h1>
+<p> Input your assignments, goals, and projects in this form! </p>
+<form action="newevent" method="post">
+<label for="name">Task Title: Make Sure It Is Descriptive Enough</label><br>
+<input type="text" id="name" name="taskname" placeholder="Add title"><br>
 
-<h1>Tasks:</h1>
-<p>This is where you input what you have to do!</p>
+<label for="duedate">Due Date</label><br>
 
+<input type="date" id="duedate" name="duedate"
+       value="2018-07-22"
+       min="2018-01-01" max="3000-12-31">
+<br>
+
+<label for="timeestimate">Estimated Amount of Time Left To Spend On It</label><br>
+<input type="number" id="timeestimate" name="timeestimate"
+       min="10" max="100000000000">
+</select><br>
+
+<label for="priority">On a scale of 1 - 10 how much is this task stressing you out?</label><br>
+<input type="number" id="stress" name="stress"
+       min="1" max="10">
+</select><br>
+
+<input type="submit" value="Submit">
+</form>
 </body>
 </html>
-{% endblock %}S
+{% endblock %}

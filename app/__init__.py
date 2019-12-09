@@ -21,11 +21,6 @@ class JSONEncoder(json.JSONEncoder):
 
 app = Flask(__name__)
 app.config.from_object(Config)
-mongo=PyMongo(app)
-db = mongo.db
-#col = mongo.db[]
-
-app.json_encoder = JSONEncoder
 
 login = LoginManager(app)
 

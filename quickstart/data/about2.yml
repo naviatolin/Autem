@@ -1,0 +1,13 @@
+enable : true
+image : images/about/rocks_with_pen.png
+title : Not your average productivity application.
+description : Striking the perfect balance where you have exceptional mental health and are able to accomplish all of the tasks that you have written down in your daily planner is extremely difficult. In today's never ending rat race, many people in the workforce lean more towards getting all of the work done at a huge detriment to their mental health. Slogging through late nights just to meet your next deadline, drinking coffee after dark, and eventually feeling so burnt out that you no longer feel like touching work is not healthy. Front-loading yourself with work will only cause you to dislike it later on. Olin College of Engineering likes to use the term "overscoping your life" to describe this phenomenon. But don't believe us. Microsoft tested a 4-day work week test last August in Japan where employees worked for four days but got paid for five. Worker productivity rose 40%. ShakeShack also implemented this and found that workers were 20% more productive and so much happier. So, if large corporations are already testing this to improve worker productivity, why aren't we implementing this in our lives?
+description2: Autem recognizes that people actually function at their best when they take breaks and complete activities that make them happy. We know that overworking yourself doesn't actually make you more productive in the long term. The hardest step can often be getting started. We break down your tasks, distribute them in the way best suited to you among the days leading up to your deadline, and remind you to take breaks if you have been working for a really long time.
+aboutItem : 
+  - icon : tf-circle-compass
+    title : Schedules Can Be Hard To Follow
+    content : Autem doesn't leave you off on your own. Using google calendar integration, we will let you know how your everyday looks.
+    
+  - icon : tf-hotairballoon
+    title : What Works For You
+    content : At the end of every day, we will ask you for your mood as a quick reflective practice that is also very useful in figuring out your optimal worktime.

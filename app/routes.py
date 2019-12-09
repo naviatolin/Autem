@@ -4,7 +4,7 @@ from flask import render_template, flash, redirect, url_for, request
 from app import app
 from app.forms import LoginForm
 import os
-from apiclient.discovery import build
+import apiclient
 from google_auth_oauthlib.flow import InstalledAppFlow
 import pickle 
 from datetime import datetime, timedelta
@@ -12,7 +12,7 @@ import datefinder
 import requests
 
 credentials = pickle.load(open("token.pkl", "rb"))
-service = build("calendar", "v3", credentials=credentials)
+service = apiclient.discovery.build("calendar", "v3", credentials=credentials)
 
 """ Connecting to my calendar """ 
 result = service.calendarList().list().execute()
@@ -91,9 +91,9 @@ def task():
 def survey():
     return render_template('survey.html', title='Survey')
 
-@app.route('/newevent', methods=['POST'])
+@app.route('/newevent', methods=['GET','POST'])
 def newevent():
-    #projectpath = request.form['C:\Users\mahmad1\Desktop\softdes\FairyGodmothers\FairyGodmothers\app\templates\event.html']
+    form = event_form()
     summary = request.form['eventname']
     day_of_week = request.form['dayofweek']
     start_hour = request.form['shour']
@@ -136,7 +136,15 @@ def newevent():
         minutes = duration_minute/60
         duration = duration_hour + minutes
         duration = duration
-        
-    #start_time_str = day_of_week + start_hour + start_min
+       
     create_event(s, summary, duration)
+    return redirect('/calendar')
+
+@app.route('/newtask', methods=['GET','POST'])
+def newtask():
+    form = task_form()
+    title = request.form['taskname']
+    due_date= request.form['duedate']
+    time_estimate = request.form['timeestimate']
+    stress= request.form['stress']
     return redirect('/calendar')
