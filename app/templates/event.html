@@ -29,126 +29,43 @@ h1 {
  
   color:#425563;
 }
-input[type=text] {
-  width:50%;
-  height: 30px;
-  padding: 12px 20px;
-  margin: 8px 0;
-  box-sizing: border-box;
-  border: 3px solid #425563;
-  border-radius: 5px;
-  background-color: #ffffff;
-  font-family: 'Sanchez', serif;
-}
-select {
-  width: 50%;
-  height: 30px;
-  border: 3px solid #425563;
-  border-radius: 5px;
-  background-color: #ffffff;
-  font-family: 'Sanchez', serif;
-}
-input[type=button], input[type=submit], input[type=reset] {
-  background-color:#F3AE9E;
-  border: 3px solid #EA7C68;
-  border-radius: 5px;
-  color: #425563;
-  padding: 15px 40px;
-  font-family: 'Sanchez', serif;
-  margin: 4px 2px;
-  cursor: pointer;
-  font-size: 30px;
-}
 </style>
 </head>
-
 <body>
 <h1>Events:</h1>
-<p> This is where you input your recurring weekly events! </p>
-<form action="newevent" method="post">
-<label for="name">Title</label><br>
-<input type="text" id="name" name="eventname" placeholder="Add title"><br>
-<label for="dayofweek">Day of the Week</label><br>
-<select id="dayofweek" name="dayofweek">
-  <option value="sunday ">Sunday</option>
-  <option value="monday ">Monday</option>
-  <option value="tuesday ">Tuesday</option>
-  <option value="wednesday ">Wednesday</option>
-  <option value="thursday ">Thursday</option>
-  <option value="friday ">Friday</option>
-  <option value="saturday ">Saturday</option>
-</select><br>
-<label for="shour">Start Hour</label><br>
-<select id="shour" name="shour">
-  <option value="1">1</option>
-  <option value="2">2</option>
-  <option value="3">3</option>
-  <option value="4">4</option>
-  <option value="5">5</option>
-  <option value="6">6</option>
-  <option value="7">7</option>
-  <option value="8">8</option>
-  <option value="9">9</option>
-  <option value="10">10</option>
-  <option value="11">11</option>
-  <option value="12">12</option>
-</select><br>
-<label for="smin">Start Minute</label><br>
-<select id="smin" name="smin">
-  <option value=":00">:00</option>
-  <option value=":05">:05</option>
-  <option value=":10">:10</option>
-  <option value=":15">:15</option>
-  <option value=":20">:20</option>
-  <option value=":25">:25</option>
-  <option value=":30">:30</option>
-  <option value=":35">:35</option>
-  <option value=":40">:40</option>
-  <option value=":45">:45</option>
-  <option value=":50">:50</option>
-  <option value=":55">:55</option>
-</select><br>
-<label for="day1">AM/PM</label><br>
-<select id="day1" name="day1">
-  <option value="am">am</option>
-  <option value="pm">pm</option>
-</select><br>
-<label for="ehour">End Hour</label><br>
-<select id="ehour" name="ehour">
-  <option value="1">1</option>
-  <option value="2">2</option>
-  <option value="3">3</option>
-  <option value="4">4</option>
-  <option value="5">5</option>
-  <option value="6">6</option>
-  <option value="7">7</option>
-  <option value="8">8</option>
-  <option value="9">9</option>
-  <option value="10">10</option>
-  <option value="11">11</option>
-  <option value="12">12</option>
-</select><br>
-<label for="emin">End Minute</label><br>
-<select id="emin" name="emin">
-  <option value=":00">:00</option>
-  <option value=":05">:05</option>
-  <option value=":10">:10</option>
-  <option value=":15">:15</option>
-  <option value=":20">:20</option>
-  <option value=":25">:25</option>
-  <option value=":30">:30</option>
-  <option value=":35">:35</option>
-  <option value=":40">:40</option>
-  <option value=":45">:45</option>
-  <option value=":50">:50</option>
-  <option value=":55">:55</option>
-</select><br>
-<label for="day2">AM/PM</label><br>
-<select id="day2" name="day2">
-  <option value="am">am</option>
-  <option value="pm">pm</option>
-</select><br>
-<input type="submit" value="Submit">
+  <form action="" method="post" novalidate>
+      {{ form.hidden_tag() }}
+      <p>
+          {{ form.eventname.label }}<br>
+          {{ form.eventname(size=70) }}
+      </p>
+      <p>
+          {{ form.dayofweek.label }}<br>
+          {{ form.dayofweek }}
+      </p>
+      <p>{{ form.shour.label }}<br>
+         {{ form.shour }} 
+      </p>
+      <p>{{ form.smin.label }}<br>
+         {{ form.smin }}
+      </p>
+      <p> {{ form.day1.label }}<br>
+          {{ form.day1}}
+      </p>
+      <p>
+          {{ form.ehour.label }}<br>
+          {{ form.ehour }}
+      </p>
+      <p>
+          {{ form.emin.label }}<br>
+          {{ form.emin }}
+      </p>
+      <p>
+          {{ form.day2.label }}<br>
+          {{ form.day2 }}
+      </p>
+
+      <p>{{ form.submit() }}</p>
 </form>
 </body>
 </html>
