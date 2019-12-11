@@ -38,7 +38,7 @@ def create_event(start_time_str, summary, duration=1, description=None, location
         },
         'end': {
             'dateTime': end_time.strftime("%Y-%m-%dT%H:%M:%S"),
-            'timeZone': 'America/Chicago'
+            'timeZone': 'America/New_York'
         },
         'reminders': {
             'useDefault': False,
@@ -50,6 +50,7 @@ def create_event(start_time_str, summary, duration=1, description=None, location
             'RRULE:FREQ=WEEKLY',
         ],
     }
+    print(event)
 
 def create_task(start_time_str, summary, duration=1, description=None, location=None):
     matches=list(datefinder.find_dates(start_time_str))
@@ -67,7 +68,7 @@ def create_task(start_time_str, summary, duration=1, description=None, location=
         },
         'end': {
             'dateTime': end_time.strftime("%Y-%m-%dT%H:%M:%S"),
-            'timeZone': 'America/Chicago'
+            'timeZone': 'America/New_York'
         },
         'reminders': {
             'useDefault': False,
