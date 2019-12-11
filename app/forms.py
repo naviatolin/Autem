@@ -1,4 +1,4 @@
-""" Gives ability to make Log in and Create Account forms""" 
+""" Gives ability to make forms""" 
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField, SubmitField, DateTimeField, SelectField, SelectMultipleField
 from wtforms.validators import DataRequired
@@ -15,6 +15,9 @@ class LoginForm(FlaskForm):
     submit = SubmitField('Sign In') 
 
 class TaskForm(FlaskForm):
+    """ 
+    A form for users to fill out in order to create a task
+    """
     title = StringField('Title', validators=[DataRequired()])#this is the form for the title (summary in create_event)
     #due_date = DateTimeField('Due Date', validators=[DataRequired()])
     due_date = DateField('Due Date', format='%Y-%m-%d')
@@ -25,6 +28,9 @@ class TaskForm(FlaskForm):
     submit = SubmitField('Submit')
 
 class EventForm(FlaskForm):
+    """ 
+    A form for users to fill out in order to create an event
+    """
     eventname = StringField('Title', validators=[DataRequired()])
     dayofweek = SelectField('Day of the Week', choices=[('sun', 'Sunday'), ('mon', 'Monday'), ('tue', 'Tuesday'),
     ('wed', 'Wednesday'), ('thu', 'Thursday'), ('fri', 'Friday'), ('sat', 'Saturday')])
@@ -39,6 +45,9 @@ class EventForm(FlaskForm):
     submit = SubmitField('Submit')
 
 class SurveyForm(FlaskForm):
+    """ 
+    A form for users to fill out in order to tell us their preferences 
+    """
     level_one = SelectMultipleField("When you're at level one stress, how do you like to relax?", choices=[('walk', 'Take a Walk'), ('Bubble', 'Bubble Bath'), ('nac', 'TV/Movies'), ('ff1', 'See friends/family'),
      ('ff2', 'Call friends/family'), ('craft', 'Craft'), ('music', 'Listen to music'), ('pet', 'Play with pet'), ('food', 'Get food'), ('shower', 'Take a shower'), ('dance', 'Dance')])
     level_two = SelectMultipleField("When you're at level one stress, how do you like to relax?", choices=[('walk', 'Take a Walk'), ('Bubble', 'Bubble Bath'), ('nac', 'TV/Movies'), ('ff1', 'See friends/family'),

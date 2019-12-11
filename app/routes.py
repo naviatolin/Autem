@@ -20,9 +20,12 @@ service = apiclient.discovery.build("calendar", "v3", credentials=credentials)
 result = service.calendarList().list().execute()
 calendar_id = result['items'][0]['id']
 
-""" Making New Event! """
+
 
 def create_event(start_time_str, summary, duration=1, description=None, location=None):
+    """ 
+    Making New Event! 
+    """
     matches=list(datefinder.find_dates(start_time_str))
     if len(matches):
         start_time = matches[0]
@@ -53,6 +56,9 @@ def create_event(start_time_str, summary, duration=1, description=None, location
     print(event)
 
 def create_task(start_time_str, summary, duration=1, description=None, location=None):
+    """ 
+    Making New Event! 
+    """
     matches=list(datefinder.find_dates(start_time_str))
     if len(matches):
         start_time = matches[0]
