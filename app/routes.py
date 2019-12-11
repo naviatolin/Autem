@@ -131,8 +131,8 @@ def task():
         with open('tasks.json', 'w') as f:
             json.dump(task_database, f)
         
-        break_up_tasks()
         task_database[index]["is_placed"] = True
+        break_up_tasks()
         return redirect(url_for('calendar'))
     return render_template('task.html', title= 'Tasks', form=form)
 
