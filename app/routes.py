@@ -342,7 +342,7 @@ def break_up_tasks():
                                 start_date_string = datetime(available_days[day].year, available_days[day].month, available_days[day].day, start_day_time, minute, 0).isoformat()
                                 create_task_chunk(datetime(available_days[day].year, available_days[day].month, available_days[day].day, start_day_time, minute, 0), unplaced_tasks[key]["task_summary"])
 
-                                create_rest_event(datetime(available_days[day].year, available_days[day].month, available_days[day].day, start_day_time + 1, minute, 0), 'Destress If Possible")
+                                create_rest_event(datetime(available_days[day].year, available_days[day].month, available_days[day].day, start_day_time + 1, minute, 0), "Destress If Possible")
                                 break
                             
                             if start_day_time + 1 == end_day_time:
@@ -352,7 +352,7 @@ def break_up_tasks():
                         start_date_string = datetime(available_days[day].year, available_days[day].month, available_days[day].day, start_day_time, minute, 0).isoformat()
                         create_task_chunk(datetime(available_days[day].year, available_days[day].month, available_days[day].day, start_day_time, minute, 0), unplaced_tasks[key]["task_summary"])
 
-                        create_rest_event(datetime(available_days[day].year, available_days[day].month, available_days[day].day, start_day_time + 1, minute, 0), 'Destress If Possible")
+                        create_rest_event(datetime(available_days[day].year, available_days[day].month, available_days[day].day, start_day_time + 1, minute, 0), "Destress If Possible")
 
             # if any chunks weren't able to placed try to place them in other available days
             if chunks_left > 0:
@@ -388,7 +388,7 @@ def break_up_tasks():
                                         start_date_string = datetime(available_days[day].year, available_days[day].month, available_days[day].day, start_day_time, minute, 0).isoformat()
                                         create_task_chunk(datetime(available_days[day].year, available_days[day].month, available_days[day].day, start_day_time, minute, 0), unplaced_tasks[key]["task_summary"])
 
-                                        create_rest_event(datetime(available_days[day].year, available_days[day].month, available_days[day].day, start_day_time + 1, minute, 0), 'Destress If Possible")
+                                        create_rest_event(datetime(available_days[day].year, available_days[day].month, available_days[day].day, start_day_time + 1, minute, 0), "Destress If Possible")
                                         break
                                     
                                     if start_day_time + 1 == end_day_time:
@@ -398,7 +398,7 @@ def break_up_tasks():
                                 start_date_string = datetime(available_days[day].year, available_days[day].month, available_days[day].day, start_day_time, minute, 0).isoformat()
                                 create_task_chunk(datetime(available_days[day].year, available_days[day].month, available_days[day].day, start_day_time, minute, 0), unplaced_tasks[key]["task_summary"])
 
-                                create_rest_event(datetime(available_days[day].year, available_days[day].month, available_days[day].day, start_day_time + 1, minute, 0), 'Destress If Possible")
+                                create_rest_event(datetime(available_days[day].year, available_days[day].month, available_days[day].day, start_day_time + 1, minute, 0), "Destress If Possible")
                     
         else:
             continue
