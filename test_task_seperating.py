@@ -16,6 +16,7 @@ service = apiclient.discovery.build("calendar", "v3", credentials=credentials)
 result = service.calendarList().list().execute()
 calendar_id = result['items'][0]['id']
 
+""" Our algorithm that gets tasks, breaks them up, and schedules them """
 def break_up_tasks():
     
     with open('tasks.json', 'rb') as file:

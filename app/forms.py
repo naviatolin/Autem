@@ -1,4 +1,4 @@
-""" Gives ability to make Log in and Create Account forms""" 
+""" Gives ability to make forms""" 
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField, SubmitField, DateTimeField, SelectField, SelectMultipleField
 from wtforms.validators import DataRequired
