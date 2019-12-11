@@ -16,33 +16,44 @@ service = apiclient.discovery.build("calendar", "v3", credentials=credentials)
 result = service.calendarList().list().execute()
 calendar_id = result['items'][0]['id']
 
-""" Our algorithm that gets tasks, breaks them up, and schedules them """
 def break_up_tasks():
-    
+    """
+    Break up the tasks and set the google calendar events so that nothing collides.
+    """
+    # open the task database
     with open('tasks.json', 'rb') as file:
         task_database = json.load(file)
     
+    # open the user preferences database
     with open('user_preference.json', 'rb') as file:
         user_preferences_database = json.load(file)
     
+    # when the user wants to start and end working
     start_day_time = int(user_preferences_database["start_day_hour"])
     end_day_time = int(user_preferences_database["end_day_hour"]) + 12
         
+    # find which tasks have not been already put in the calendar
     unplaced_tasks = {}
     for key in task_database:
         if task_database[key]["is_placed"] == False:
             unplaced_tasks[key] = task_database[key]
     
+    # order these tasks by date
     order_keys_date = sorted(unplaced_tasks, key=lambda x: unplaced_tasks[x]['due_date'])
     date_format = "%Y-%m-%d"
 
+    # check the tasks that haven't been placed in the date ordered way
     for key in order_keys_date:
         chunks_left = 0 # reset the amount of chunks that are can't be scheduled on a day
-        number_of_chunks = unplaced_tasks[key]["time_est"]
+        number_of_chunks = unplaced_tasks[key]["time_est"] # chunk the task up into 1 hour chunk
+
+        
         today = datetime.today()
         due_date = datetime.strptime(unplaced_tasks[key]["due_date"], date_format)
         number_of_days_to_complete = (due_date - today).days
         task_database[key]["is_placed"] = True
+        
+        # place the chunks in the calender if it is free
         if number_of_days_to_complete > 0:
             chunks_per_day = math.ceil(float(number_of_chunks)/number_of_days_to_complete)
 
@@ -82,7 +93,7 @@ def break_up_tasks():
 
                             if len(events) is 0:
                                 start_date_string = datetime(available_days[day].year, available_days[day].month, available_days[day].day, start_day_time, minute, 0).isoformat()
-                                create_event(datetime(available_days[day].year, available_days[day].month, available_days[day].day, start_day_time, minute, 0), unplaced_tasks[key]["task_summary"])
+                                create_task_chunk(datetime(available_days[day].year, available_days[day].month, available_days[day].day, start_day_time, minute, 0), unplaced_tasks[key]["task_summary"])
 
                                 create_rest_event(datetime(available_days[day].year, available_days[day].month, available_days[day].day, start_day_time + 1, minute, 0), 'Destress If Possible")
                                 break
@@ -92,10 +103,11 @@ def break_up_tasks():
 
                     else:
                         start_date_string = datetime(available_days[day].year, available_days[day].month, available_days[day].day, start_day_time, minute, 0).isoformat()
-                        create_event(datetime(available_days[day].year, available_days[day].month, available_days[day].day, start_day_time, minute, 0), unplaced_tasks[key]["task_summary"])
+                        create_task_chunk(datetime(available_days[day].year, available_days[day].month, available_days[day].day, start_day_time, minute, 0), unplaced_tasks[key]["task_summary"])
 
                         create_rest_event(datetime(available_days[day].year, available_days[day].month, available_days[day].day, start_day_time + 1, minute, 0), 'Destress If Possible")
-                    
+
+            # if any chunks weren't able to placed try to place them in other available days
             if chunks_left > 0:
                 for chunks in range(0, chunks_left):
                     for day in range(0, len(available_days)):
@@ -127,7 +139,7 @@ def break_up_tasks():
 
                                     if len(events) is 0:
                                         start_date_string = datetime(available_days[day].year, available_days[day].month, available_days[day].day, start_day_time, minute, 0).isoformat()
-                                        create_event(datetime(available_days[day].year, available_days[day].month, available_days[day].day, start_day_time, minute, 0), unplaced_tasks[key]["task_summary"])
+                                        create_task_chunk(datetime(available_days[day].year, available_days[day].month, available_days[day].day, start_day_time, minute, 0), unplaced_tasks[key]["task_summary"])
 
                                         create_rest_event(datetime(available_days[day].year, available_days[day].month, available_days[day].day, start_day_time + 1, minute, 0), 'Destress If Possible")
                                         break
@@ -137,7 +149,7 @@ def break_up_tasks():
 
                             else:
                                 start_date_string = datetime(available_days[day].year, available_days[day].month, available_days[day].day, start_day_time, minute, 0).isoformat()
-                                create_event(datetime(available_days[day].year, available_days[day].month, available_days[day].day, start_day_time, minute, 0), unplaced_tasks[key]["task_summary"])
+                                create_task_chunk(datetime(available_days[day].year, available_days[day].month, available_days[day].day, start_day_time, minute, 0), unplaced_tasks[key]["task_summary"])
 
                                 create_rest_event(datetime(available_days[day].year, available_days[day].month, available_days[day].day, start_day_time + 1, minute, 0), 'Destress If Possible")
                     
@@ -145,6 +157,9 @@ def break_up_tasks():
             continue
 
 def get_tasks_hour(start_date, end_date):
+    """
+    Checks the hour of the task to see if something else is already scheduling
+    """
     with open('user_preference.json', 'rb') as file:
         user_preferences_database = json.load(file)
     
@@ -153,6 +168,9 @@ def get_tasks_hour(start_date, end_date):
     return events
 
 def create_task_chunk(start_time, summary, description=None, location=None):
+    """
+    Putting the task chunks into your calendar
+    """
     end_time = start_time + timedelta(hours=1)  
     start_time = start_time.strftime("%Y-%m-%dT%H:%M:%S")
     end_time = end_time.strftime("%Y-%m-%dT%H:%M:%S")
@@ -178,6 +196,9 @@ def create_task_chunk(start_time, summary, description=None, location=None):
     return service.events().insert(calendarId='primary', body=event).execute()
 
 def create_rest_event(start_time, summary, description=None, location=None):
+    """
+    Scheduling in mental health time!
+    """
     end_time = start_time + timedelta(minutes=15)  
     start_time = start_time.strftime("%Y-%m-%dT%H:%M:%S")
     end_time = end_time.strftime("%Y-%m-%dT%H:%M:%S")
@@ -203,4 +224,3 @@ def create_rest_event(start_time, summary, description=None, location=None):
     return service.events().insert(calendarId='primary', body=event).execute()
 
 break_up_tasks()
-# date = datetime(2019)
