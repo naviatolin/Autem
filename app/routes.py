@@ -12,6 +12,7 @@ from datetime import datetime, timedelta
 import datefinder
 import requests
 from wtforms import Form, TextField, TextAreaField, validators, StringField, SubmitField
+import math
 
 credentials = pickle.load(open("token.pkl", "rb"))
 service = apiclient.discovery.build("calendar", "v3", credentials=credentials)
