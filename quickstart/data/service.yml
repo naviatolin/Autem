@@ -4,24 +4,24 @@ headingSpan : Functionality
 serviceItem :
   - icon : tf-globe
     title : Events and Task Handling
-    content : Autem looks at your tasks and the amount of time you estimate them to take and breaks them up into reasonable chunks and schedules them into your free time. If you don't have any remaining time in the day, Autem will remind you to scale back if possible. Say you are unable to scale back in the current moment. Autem will either schedule the task earlier in the morning or later in the night than usual.
+    content : Autem looks at your tasks and the amount of time you estimate them to take and breaks them up into reasonable chunks and schedules them into your free time. If you don't have any remaining time in the day, Autem will not schedule that task in  . Say you are unable to scale back in the current moment. Autem will either schedule the task earlier in the morning or later in the night than usual.                                                        
     
   - icon : tf-ion-laptop
     title : Scheduling With Mental Health In Mind
-    content : Autem will try to optimize the 
+    content : Autem has specific hours of the day where it won't schedule anything, thus ensuring the user can sleep. A future goal for Autem is to start recognizing patterns. If a user consistently rates their mood lower after long tasks, autem will start incorporating more breaks, making the work more frequent but shorter, so as to better fit that specific users needs. 
     
   - icon : tf-genius
-    title : Media &amp; Advertisement
-    content : Lorem ipsum dolor sit amet, consectetur.. Sed id lorem eget orci dictum facilisis vel id tellus.Nullam iaculis arcu at mauris dapibus consectetur.
+    title : Ethics
+    content : Autem was designed to help people with time management, and make sure that they take mental health into account with that. Throughout creating Autem, we knew that the mental health aspect would be just as important as the time management. We're aware that Autem could be misused. People could use our algorithms without the mental health elements we've added in, and use Autem to contribute to the toxic productivity culture that is already such a big problem. 
     
-  - icon : tf-dial
-    title : Graphic Design
-    content : Lorem ipsum dolor sit amet, consectetur.. Sed id lorem eget orci dictum facilisis vel id tellus.Nullam iaculis arcu at mauris dapibus consectetur.
+  # - icon : tf-dial
+  #   title : Graphic Design
+  #   content : Lorem ipsum dolor sit amet, consectetur.. Sed id lorem eget orci dictum facilisis vel id tellus.Nullam iaculis arcu at mauris dapibus consectetur.
     
-  - icon : tf-target3
-    title : Apps Development
-    content : Lorem ipsum dolor sit amet, consectetur.. Sed id lorem eget orci dictum facilisis vel id tellus.Nullam iaculis arcu at mauris dapibus consectetur.
+  # - icon : tf-target3
+  #   title : Apps Development
+  #   content : Lorem ipsum dolor sit amet, consectetur.. Sed id lorem eget orci dictum facilisis vel id tellus.Nullam iaculis arcu at mauris dapibus consectetur.
     
-  - icon : tf-lifesaver
-    title : Networking
-    content : Lorem ipsum dolor sit amet, consectetur.. Sed id lorem eget orci dictum facilisis vel id tellus.Nullam iaculis arcu at mauris dapibus consectetur.
+  # - icon : tf-lifesaver
+  #   title : Networking
+  #   content : Lorem ipsum dolor sit amet, consectetur.. Sed id lorem eget orci dictum facilisis vel id tellus.Nullam iaculis arcu at mauris dapibus consectetur.
