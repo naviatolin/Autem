@@ -19,7 +19,7 @@ summaryLength = 10
 
     [[menu.nav]]
     name = "Functionality"
-    URL = "functionality"
+    URL = "service"
     weight = 3
 
 
@@ -57,7 +57,7 @@ author = "Themefisher"
     [params.cta]
     enable = true
     title = "So what does Autem actually do?"
-    btnURL = "#functionality"
+    btnURL = "#service"
     btnText = "Let's take a look"
 
     # counter
@@ -67,53 +67,19 @@ author = "Themefisher"
         [[params.counter.counterItem]]
         title = "Happy Clients"
         icon = "tf-ion-android-happy"
-        count = "320"
+        count = "Hopefully 384"
 
         [[params.counter.counterItem]]
         title = "Projects completed"
         icon = "tf-ion-archive"
-        count = "565"
+        count = "1 (This)"
 
         [[params.counter.counterItem]]
         title = "Positive feedback"
         icon = "tf-ion-thumbsup"
-        count = "95"
+        count = "Hopefully"
 
         [[params.counter.counterItem]]
         title = "Cups of Coffee"
         icon = "tf-ion-coffee"
-        count = "2500"
-
-    # footer
-    [params.footer]
-        copyright = "Themefisher"
-        copyrightURL = "http://www.themefisher.com"
-
-        # social Icons
-        [[params.footer.socialIcon]]
-        icon = "tf-ion-social-facebook"
-        url = "#"
-
-        [[params.footer.socialIcon]]
-        icon = "tf-ion-social-twitter"
-        url = "#"
-
-        [[params.footer.socialIcon]]
-        icon = "tf-ion-social-google-outline"
-        url = "#"
-
-        [[params.footer.socialIcon]]
-        icon = "tf-ion-social-youtube"
-        url = "#"
-
-        [[params.footer.socialIcon]]
-        icon = "tf-ion-social-linkedin"
-        url = "#"
-
-        [[params.footer.socialIcon]]
-        icon = "tf-ion-social-dribbble-outline"
-        url = "#"
-
-        [[params.footer.socialIcon]]
-        icon = "tf-ion-social-pinterest-outline"
-        url = "#"
+        count = "More Than 2"
