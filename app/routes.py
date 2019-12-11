@@ -2,11 +2,12 @@
 
 from flask import render_template, flash, redirect, url_for, request
 from app import app
-from app.forms import LoginForm, TaskForm, EventForm
+from app.forms import LoginForm, TaskForm, EventForm, SurveyForm
 import os
 import apiclient
 from google_auth_oauthlib.flow import InstalledAppFlow
 import pickle 
+import json
 from datetime import datetime, timedelta
 import datefinder
 import requests
@@ -164,18 +165,57 @@ def event():
 @app.route('/task', methods=['GET', 'POST'])
 def task():
     form = TaskForm()
-    #print(due_date)
     if form.validate_on_submit():
         task_summary = request.form['title']
         due_date = request.form['due_date']
         time_est = request.form['time_est']
         stress = request.form['stress']
-        print(task_summary, due_date, time_est, stress)
+        is_placed = False
+
+        with open('tasks.json', 'rb') as file:
+            task_database = json.load(file)    
+
+        task = {'task_summary' : task_summary,
+                    'due_date' : due_date, 
+                    'time_est': time_est,
+                    'stress' : stress,
+                    'is_placed' : is_placed}
+        index = task_summary.strip()
+        index = task_summary.replace(" ", "")
+        index = index + str(due_date) + str(time_est)
+        task_database[index] = task
+                                                    
+        with open('tasks.json', 'w') as f:
+            json.dump(task_database, f)
+
         return redirect(url_for('calendar'))
     return render_template('task.html', title= 'Tasks', form=form)
 
-@app.route('/survey')
+@app.route('/survey', methods=['GET', 'POST'])
 def survey():
-    return render_template('survey.html', title='Survey')
+    form = SurveyForm()
+    if form.validate_on_submit():
+        one = request.form['level_one']
+        two = request.form['level_two']
+        three = request.form['level_three']
+        start = request.form['start_day_hour']
+        end = request.form['end_day_hour']
+        lunch = request.form['lunch_hour']
+        dinner = request.form['dinner_hour']
 
-
+        user_info = {'level_one' : one,
+                    'level_two' : two,
+                    'level_three' : three}
+        user_preference = {'start_day_hour' : start,
+                            'end_day_hour' : end,
+                            'lunch_hour' : lunch,
+                            'dinner_hour' : dinner}
+        with open('user_info.json', 'w') as f:
+            json.dump(user_info, f)
+        with open('user_preference.json', 'w') as f:
+            json.dump(user_preference, f)
+        return redirect(url_for('calendar'))    
+    return render_template('survey.html', title='Survey', form=form)
+        
+        
+        

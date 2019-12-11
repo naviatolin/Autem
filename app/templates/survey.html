@@ -19,24 +19,26 @@ h1 {
 
 body {
   background-color: #DAEBED;
-}
-
-.center {
-  position: static;
-  margin-top:130px;
+  font-family: 'Sanchez', serif;
   text-align: center;
+  color:#425563;
+  font-size: 25px;
 }
 
 p {
-
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
     font-size: 18px;
     font-family: 'Sanchez', serif;
     color:#425563
+    width: 100%;
 }
 
+form textarea#content {
+     width: 300px;
+     height: 70px;   
+     font-size: 18px;
+     font-family: 'Sanchez', serif;
+     color:#425563
+}
 </style>
 </head>
 <body>
@@ -44,8 +46,37 @@ p {
 <h1>Survey:</h1>
 
 <p> Autem means <i>Up</i> in Latin. We want to help your happiness and free time go up, and your stress to go <i>way</i> down! <br> This survey was designed to help encourage you to take time for yourself, and do the activities you enjoy when you most need them. </p>
-<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdVnDhDD2lA44zYvnOBvIzfNMxuJbvHOz11bIZcUyJHDEd_cg/viewform?embedded=true" width="1200" height="1900" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+<form action="" method="post" novalidate>
+  {{ form.hidden_tag() }}
+  <p>
+      {{ form.level_one.label }}<br>
+      {{ form.level_one }}
+  </p>
+  <p>
+      {{ form.level_two.label }}<br>
+      {{ form.level_two }}
+  </p>
+  <p>{{ form.level_three.label }}<br>
+     {{ form.level_three }} 
+  </p>
+  <p><b>Now, we want to ask about some of your preferences!</b></p>
+  <p>{{ form.start_day_hour.label }}<br>
+     {{ form.start_day_hour }}
+  </p>
+  <p>{{ form.end_day_hour.label }}<br>
+     {{ form.end_day_hour }}
+  </p>
+  <p>{{ form.lunch_hour.label }}<br>
+     {{ form.lunch_hour }}
+  </p>
+  <p>{{ form.dinner_hour.label }}<br>
+     {{ form.dinner_hour }}
+  </p>
 
+  <p>{{ form.submit() }}</p>
+
+  
+</form>
 </body>
 </html>
 {% endblock %}S
