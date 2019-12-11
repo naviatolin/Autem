@@ -131,7 +131,7 @@ def task():
         with open('tasks.json', 'w') as f:
             json.dump(task_database, f)
         
-        break_up_tasks()
+        #break_up_tasks()
 
         return redirect(url_for('calendar'))
     return render_template('task.html', title= 'Tasks', form=form)
@@ -159,8 +159,8 @@ def survey():
             json.dump(user_info, f)
         with open('user_preference.json', 'w') as f:
             json.dump(user_preference, f)
-        create_event(lunch, 'lunch', 1)
-        create_event(dinner, 'dinner', 1)
+        # create_event('12:30 pm', 'lunch', 1)
+        # create_event(dinner, 'dinner', 1)
         return redirect(url_for('calendar'))    
     return render_template('survey.html', title='Survey', form=form)
 
